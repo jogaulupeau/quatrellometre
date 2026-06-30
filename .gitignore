@@ -1,0 +1,18 @@
+# Secrets locaux — NE JAMAIS committer (valeurs reelles AP_PASS / CFG_TOKEN)
+# Utiliser secrets.example.h comme modele.
+secrets.h
+
+# Doc de travail interne — non publiee dans le depot
+HANDOFF-telemetrie-4L.md
+
+# Artefacts de compilation Arduino (binaires, ~40 Mo)
+/build/
+
+# Reglages Claude Code locaux (personnels, non partages)
+.claude/settings.local.json
+
+# Cruft OS / editeur
+.DS_Store
+Thumbs.db
+*.swp
+*~
