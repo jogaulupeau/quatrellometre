@@ -1,5 +1,5 @@
 /* =====================================================================
-   CADRAN RÉTRO 4L — ESP32 + GC9A01
+   QUATRELLOMÈTRE — cadran rétro 4L (ESP32 + GC9A01)
    ---------------------------------------------------------------------
    RPM en aiguille (0–7000 tr/min, zone rouge dès 5500) — c'est la valeur
    qu'on surveille en continu en conduisant, l'aiguille s'y prête mieux.

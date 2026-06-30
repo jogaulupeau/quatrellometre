@@ -1,8 +1,10 @@
-# Cadran de télémétrie 4L
+# Quatrellomètre
 
-Cadran rétro pour **Renault 4L (1985)** : compte-tours à aiguille, température
-du liquide de refroidissement et tension batterie sur un écran rond, piloté par
-un **ESP32**. Une interface web déportée (point d'accès WiFi) permet de visualiser
+> *Quatrelle + -mètre* — l'instrument de bord de la 4L.
+
+Cadran de télémétrie rétro pour **Renault 4L (1985)** : compte-tours à aiguille,
+température du liquide de refroidissement et tension batterie sur un écran rond,
+piloté par un **ESP32**. Une interface web déportée (point d'accès WiFi) permet de visualiser
 les mesures, configurer les seuils et mettre à jour le firmware depuis un smartphone.
 
 > Projet personnel / embarqué. Le firmware est en C++ (framework Arduino).
