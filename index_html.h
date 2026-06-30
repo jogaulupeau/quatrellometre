@@ -40,10 +40,18 @@ button.sec{background:#3a352b;color:var(--ink)}
 .hub{fill:#f2ead6;stroke:#2c2820;stroke-width:1.5}
 .rval{fill:var(--ink);font:800 34px system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}
 .runit{fill:var(--mut);font:600 12px system-ui,sans-serif;text-anchor:middle;letter-spacing:.1em}
+@media (orientation:landscape){
+ main{max-width:920px}
+ .dash{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+ .dash .gauge{margin:0;align-items:center}
+ .dash .row{grid-template-columns:1fr;align-content:center}
+ #tach{max-width:340px}
+}
 </style></head><body>
 <header><span>RENAULT 4L &middot; TELEMETRIE</span><span id="stat">...</span></header>
 <main>
 <div class="alarm" id="al">&#9888; ALARME</div>
+<div class="dash">
 <div class="card gauge">
 <svg id="tach" viewBox="0 0 240 240" aria-label="compte-tours">
 <circle class="bezel" cx="120" cy="120" r="118"/>
@@ -56,6 +64,7 @@ button.sec{background:#3a352b;color:var(--ink)}
 <div class="row">
 <div class="card"><div class="lbl">Temp. eau</div><div class="val" id="temp">&mdash;<span class="u"> &deg;C</span></div><div class="mm" id="tmax">max &mdash;</div></div>
 <div class="card"><div class="lbl">Batterie</div><div class="val" id="volt">&mdash;<span class="u"> V</span></div><div class="mm" id="vmm">&mdash; / &mdash;</div></div>
+</div>
 </div>
 <div class="card cfg">
 <div class="lbl">Reglages</div>
