@@ -31,7 +31,7 @@
 // ---- Interface web déportée (smartphone) : AP WiFi + page HTML embarquée ----
 // Mettre ENABLE_WEB à 0 pour compiler sans WiFi (utile pour isoler tout impact sur le rendu).
 #define ENABLE_WEB 1
-#define FW_VERSION "v2"   // marqueur affiché dans l'en-tête web — bumper pour vérifier qu'un OTA a pris
+#define FW_VERSION "v4"   // marqueur affiché dans l'en-tête web — bumper pour vérifier qu'un OTA a pris
 #if ENABLE_WEB
   #include <WiFi.h>
   #include <WebServer.h>
@@ -116,7 +116,7 @@ const char* const gradLabels[8] = {"0","1","2","3","4","5","6","7"};
 // Horloge SPI volontairement basse = fiabilité sur breadboard (fils longs, pas de masse
 // franche). Le défaut de la lib (~40 MHz) génère des artefacts sur câblage non blindé.
 // À remonter une fois sur Veroboard si tout est stable.
-#define GFX_SPI_SPEED 20000000   // 20 MHz (descendre à 10-12 MHz si les artefacts persistent)
+#define GFX_SPI_SPEED 12000000   // 12 MHz (baissé depuis 20 MHz : artefacts/glitch écran en voiture, fils longs + vibrations)
 Arduino_DataBus *bus = new Arduino_ESP32SPI(
     PIN_TFT_DC, PIN_TFT_CS, PIN_TFT_SCK, PIN_TFT_MOSI, PIN_TFT_MISO);
 Arduino_GFX *gfx = new Arduino_GC9A01(bus, PIN_TFT_RST, 0, true);
@@ -218,7 +218,7 @@ const uint32_t FRAME_MS = 40;   // 25 fps
 // Le watchdog CPU ne voit PAS un écran figé (loop() tourne toujours). Ré-init = ~150 ms,
 // sans toucher WiFi/capteurs/uptime. 0 = auto désactivé (aucun clignotement) ; ex. 15000 =
 // ré-init+redraw toutes les 15 s (récupération mains libres, au prix d'un bref blink).
-#define SCREEN_HEAL_MS 0
+#define SCREEN_HEAL_MS 0   // désactivé (clignotement trop pénalisant). >0 = ré-init+redraw auto toutes les N ms.
 uint32_t lastScreenHeal = 0;
 bool screenReinitReq = false;   // demande de ré-init écran (bouton web /screen ou auto)
 
